@@ -1,0 +1,21 @@
+{% load wagtailcore_tags navigation_tags %}
+
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+        <a href="/" class="logo d-flex align-items-center">
+
+            <h1 class="sitename">DM</h1> <span>.</span>
+        </a>
+{% get_site_root as site_root %}
+    <nav id="navmenu" class="navmenu">
+            <ul>
+                {% for menuitem in site_root.get_children.live.in_menu %}
+                <li><a href="{{menuitem.slug}}">{{ menuitem.title }}</a></li>
+
+                {% endfor %}
+            </ul>
+    </nav>
+    </div>
+</header>
+
